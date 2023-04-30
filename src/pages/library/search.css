@@ -2,7 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
+}
+.container {
+  width: 100%;
 }
 .search-container ::placeholder {
   padding-left: 10%;

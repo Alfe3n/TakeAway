@@ -1,10 +1,16 @@
-import "./App.css";
-
+import { React } from "react";
+import { Route, Routes } from "react-router-dom";
+import { Takeaways } from "./pages/takeaways/takeaway";
+import { Page1 } from "./pages/library/page";
 function App() {
   return (
-    <>
-      <p className="p-48">hello world</p>
-    </>
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<Page1 />} />
+        <Route path="/book" element={<Takeaways />} />
+        {/* <Route path="*">"404 Not Found"</Route> */}
+      </Routes>
+    </div>
   );
 }
 
