@@ -12,7 +12,7 @@ function search() {
       .get(
         "https://www.googleapis.com/books/v1/volumes?q=" +
           search +
-          "&key=AIzaSyAfZq-DetHnW0deGAA6pdhwriqPYNDBTmw"
+          "&maxResults=5&filter=paid-ebooks&printType=books&key=AIzaSyAfZq-DetHnW0deGAA6pdhwriqPYNDBTmw"
       )
       //   .then((res) => console.log(res.data.items))
       .then((res) => setBooks(res.data.items))
