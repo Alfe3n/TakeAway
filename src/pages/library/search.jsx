@@ -3,9 +3,11 @@ import "./search.css";
 import axios from "axios";
 import { useState } from "react";
 function search() {
+  console.log("render");
   const [search, setSearch] = useState("");
   const [books, setBooks] = useState([]);
-  function searchResults() {
+  function searchResults(e) {
+    setSearch(e.target.value);
     axios
       .get(
         "https://www.googleapis.com/books/v1/volumes?q=" +
@@ -26,21 +28,20 @@ function search() {
           placeholder="Search.."
           name="search"
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          // onChange={(e) => setSearch(e.target.value)}
+          onChange={searchResults}
         />
-        <button onClick={searchResults} className="h-20 bg-white">
-          Search
-        </button>
+        <button className="h-20 bg-white">Search</button>
       </div>
       <div className="flex">
         {books.map((book) => {
           let thumbnail =
             book.volumeInfo.imageLinks &&
             book.volumeInfo.imageLinks.smallThumbnail;
-          console.log(thumbnail);
+          // console.log(book);
           if (typeof thumbnail !== "undefined")
             return (
-              <div className="p-5 card">
+              <div className="p-5 card" key={book.id}>
                 <a href="/book">
                   <img className="thumbails" src={thumbnail} />
                 </a>
