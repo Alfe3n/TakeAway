@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export function Takeaways() {
   const API_KEY = "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";
@@ -29,11 +29,9 @@ export function Takeaways() {
     console.log(data);
   }
   // fetchdata();
-  let { id } = useParams();
-
-  return (
-    <div>
-      <p>{id}</p>
-    </div>
-  );
+  // let { id } = useParams();
+  // console.log(book);
+  const location = useLocation();
+  console.log(location.state);
+  return <div></div>;
 }

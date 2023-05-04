@@ -2,10 +2,15 @@ import React from "react";
 import "./search.css";
 import axios from "axios";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 function search() {
+  const navigate = useNavigate();
   console.log("render");
   const [search, setSearch] = useState("");
-  const [books, setBooks] = useState([]);
+  const [results, setResults] = useState([]);
+  function setBook(bookparameter) {
+    navigate("/book", { state: bookparameter });
+  }
   function searchResults(e) {
     setSearch(e.target.value);
     axios
@@ -21,10 +26,10 @@ function search() {
       )
 
       //   .then((res) => console.log(res.data.items))
-      .then((res) => setBooks(res.data.items))
+      .then((res) => setResults(res.data.items))
       .catch((err) => console.log(err));
   }
-  console.log(search);
+  // console.log(search);
   return (
     <div className="container bg-black2">
       <div className="search-container h-96">
@@ -40,7 +45,7 @@ function search() {
         <button className="h-20 bg-white">Search</button>
       </div>
       <div className="flex">
-        {books.map((book) => {
+        {results.map((book) => {
           let thumbnail =
             book.volumeInfo.imageLinks &&
             book.volumeInfo.imageLinks.smallThumbnail;
@@ -50,7 +55,15 @@ function search() {
           if (typeof thumbnail !== "undefined")
             return (
               <div className="p-5 card" key={book.id}>
-                <img className="thumbails" src={thumbnail} />
+                {/* <a href="/book"> */}
+                <img
+                  className="thumbails"
+                  src={thumbnail}
+                  onClick={() => {
+                    setBook(book);
+                  }}
+                />
+                {/* </a> */}
                 <h1>{book.volumeInfo.title}</h1>
                 <p>{book.volumeInfo.authors}</p>
               </div>

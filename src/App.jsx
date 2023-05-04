@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Page1 />} />
-        <Route exact path="/book/:id" element={<Takeaways />} />
+        <Route exact path="/book" element={<Takeaways />} />
         {/* <Route path="*">"404 Not Found"</Route> */}
       </Routes>
     </div>
