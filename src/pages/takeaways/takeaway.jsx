@@ -33,6 +33,7 @@ export function Takeaways() {
   // let { id } = useParams();
   // console.log(book);
   const location = useLocation();
+  console.log("page2");
   console.log(location.state);
   return <div></div>;
 }
