@@ -9,11 +9,17 @@ function search() {
   function searchResults(e) {
     setSearch(e.target.value);
     axios
+      // .get(
+      //   "https://www.googleapis.com/books/v1/volumes?q=" +
+      //     search +
+      //     "&maxResults=5&filter=paid-ebooks&printType=books&key=AIzaSyAfZq-DetHnW0deGAA6pdhwriqPYNDBTmw"
+      // )
       .get(
         "https://www.googleapis.com/books/v1/volumes?q=" +
           search +
-          "&maxResults=5&filter=paid-ebooks&printType=books&key=AIzaSyAfZq-DetHnW0deGAA6pdhwriqPYNDBTmw"
+          "&key=AIzaSyAfZq-DetHnW0deGAA6pdhwriqPYNDBTmw"
       )
+
       //   .then((res) => console.log(res.data.items))
       .then((res) => setBooks(res.data.items))
       .catch((err) => console.log(err));
@@ -39,12 +45,12 @@ function search() {
             book.volumeInfo.imageLinks &&
             book.volumeInfo.imageLinks.smallThumbnail;
           // console.log(book);
+          // let link = `book/${book.volumeInfo.industryIdentifiers[1].identifier}`;
+          // let link = `book/${book.items.id}`;
           if (typeof thumbnail !== "undefined")
             return (
               <div className="p-5 card" key={book.id}>
-                <a href="/book">
-                  <img className="thumbails" src={thumbnail} />
-                </a>
+                <img className="thumbails" src={thumbnail} />
                 <h1>{book.volumeInfo.title}</h1>
                 <p>{book.volumeInfo.authors}</p>
               </div>

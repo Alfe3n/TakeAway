@@ -1,4 +1,6 @@
 import React from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+
 export function Takeaways() {
   const API_KEY = "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";
   // const systemMessage = {
@@ -27,9 +29,11 @@ export function Takeaways() {
     console.log(data);
   }
   // fetchdata();
+  let { id } = useParams();
+
   return (
     <div>
-      <p>hello</p>
+      <p>{id}</p>
     </div>
   );
 }
