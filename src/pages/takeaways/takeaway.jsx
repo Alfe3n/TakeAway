@@ -10,6 +10,7 @@ export function Takeaways() {
   async function fetchdata() {
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
+
       headers: {
         Authorization: `Bearer ${API_KEY}`,
         "Content-Type": "application/json",
