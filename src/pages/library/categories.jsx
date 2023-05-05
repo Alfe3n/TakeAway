@@ -8,18 +8,11 @@ function categories() {
   }
   return (
     <div>
-      {/* <p
-        onClick={() => {
-          setCategory(["biography"]);
-        }}
-      >
-        Biography and Memoir
-      </p> */}
       <div className="flex mt-10 categories-container">
         <button
           className="p-5 m-2 bg-white rounded-lg"
           onClick={() => {
-            setCategory(["biography"]);
+            setCategory(["Entrepreneurship"]);
           }}
         >
           Entrepreneurship
@@ -27,7 +20,7 @@ function categories() {
         <button
           className="p-5 m-2 bg-white rounded-lg"
           onClick={() => {
-            setCategory(["biography"]);
+            setCategory(["Productivity"]);
           }}
         >
           Productivity
@@ -35,7 +28,7 @@ function categories() {
         <button
           className="p-5 m-2 bg-white rounded-lg"
           onClick={() => {
-            setCategory(["biography"]);
+            setCategory(["Communication"]);
           }}
         >
           Communication Skills
@@ -43,7 +36,7 @@ function categories() {
         <button
           className="p-5 m-2 bg-white rounded-lg"
           onClick={() => {
-            setCategory(["biography"]);
+            setCategory(["Biography"]);
           }}
         >
           Biography and Memoir
@@ -51,10 +44,18 @@ function categories() {
         <button
           className="p-5 m-2 bg-white rounded-lg"
           onClick={() => {
-            setCategory(["biography"]);
+            setCategory(["Money"]);
           }}
         >
           Money & Investment
+        </button>
+        <button
+          className="p-5 m-2 bg-white rounded-lg"
+          onClick={() => {
+            setCategory(["Philosophy"]);
+          }}
+        >
+          Philosophy
         </button>
       </div>
     </div>
