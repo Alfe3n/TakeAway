@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "./navbar";
-import Footer from "./footer";
+import Navbar from "../common/navbar";
+import Footer from "../common/footer";
 import Search from "./search";
 export function Page1() {
   return (

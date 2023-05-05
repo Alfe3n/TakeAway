@@ -1,75 +1,57 @@
 import React from "react";
-import "./search.css";
 import axios from "axios";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import "./search.css";
+import Categories from "./categories";
 function search() {
-  const navigate = useNavigate();
   console.log("render");
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
-  function setBook(bookparameter) {
-    navigate("/book", { state: bookparameter });
-  }
   function searchResults(e) {
     setSearch(e.target.value);
     axios
-      // .get(
-      //   "https://www.googleapis.com/books/v1/volumes?q=" +
-      //     search +
-      //     "&maxResults=5&filter=paid-ebooks&printType=books&key=AIzaSyAfZq-DetHnW0deGAA6pdhwriqPYNDBTmw"
-      // )
       .get(
         "https://www.googleapis.com/books/v1/volumes?q=" +
           search +
           "&key=AIzaSyAfZq-DetHnW0deGAA6pdhwriqPYNDBTmw"
       )
-
-      //   .then((res) => console.log(res.data.items))
       .then((res) => setResults(res.data.items))
       .catch((err) => console.log(err));
   }
-  // console.log(search);
   return (
-    <div className="container bg-black2">
-      <div className="search-container h-96">
+    <div className="flex flex-col items-center justify-center h-screen bg-black2">
+      <div className="flex justify-center w-full align-middle search-container">
         <input
-          className="w-1/2 h-20"
+          className="w-1/2 h-20 pr-2 text-sm text-gray-700 outline-none peer"
           type="text"
           placeholder="Search.."
           name="search"
           value={search}
-          // onChange={(e) => setSearch(e.target.value)}
           onChange={searchResults}
         />
-        <button className="h-20 bg-white">Search</button>
+
+        <button
+          className="relative z-[2] flex items-center rounded-r bg-white px-6 py-2.5 text-xs font-medium uppercase leading-tight text-black shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
+          type="button"
+          id="button-addon1"
+          data-te-ripple-init
+          data-te-ripple-color="light"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            className="w-5 h-5"
+          >
+            <path
+              fillRule="evenodd"
+              d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </button>
       </div>
-      <div className="flex">
-        {results.map((book) => {
-          let thumbnail =
-            book.volumeInfo.imageLinks &&
-            book.volumeInfo.imageLinks.smallThumbnail;
-          // console.log(book);
-          // let link = `book/${book.volumeInfo.industryIdentifiers[1].identifier}`;
-          // let link = `book/${book.items.id}`;
-          if (typeof thumbnail !== "undefined")
-            return (
-              <div className="p-5 card" key={book.id}>
-                {/* <a href="/book"> */}
-                <img
-                  className="thumbails"
-                  src={thumbnail}
-                  onClick={() => {
-                    setBook(book);
-                  }}
-                />
-                {/* </a> */}
-                <h1>{book.volumeInfo.title}</h1>
-                <p>{book.volumeInfo.authors}</p>
-              </div>
-            );
-        })}
-      </div>
+      <Categories />
     </div>
   );
 }

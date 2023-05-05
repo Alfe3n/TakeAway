@@ -1,12 +1,3 @@
-.search-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.container {
-  width: 100%;
-}
-.search-container ::placeholder {
-  padding-left: 10%;
-  font-size: large;
+.search-container input {
+  padding-left: 30px;
 }
