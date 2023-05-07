@@ -22,7 +22,7 @@ function search() {
     <div className="flex flex-col items-center justify-center h-screen bg-black2">
       <div className="flex justify-center w-full align-middle search-container">
         <input
-          className="w-1/2 h-20 pr-2 text-sm text-gray-700 outline-none peer"
+          className="w-1/2 h-20 text-lg text-gray-700 outline-none peer"
           type="text"
           placeholder="Search.."
           name="search"
@@ -31,7 +31,7 @@ function search() {
         />
 
         <button
-          className="relative z-[2] flex items-center rounded-r bg-white px-6 py-2.5 text-xs font-medium uppercase leading-tight text-black shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
+          className="relative z-[2] flex items-center rounded-r bg-white px-6 py-2.5 text-xs font-medium uppercase leading-tight text-black "
           type="button"
           id="button-addon1"
           data-te-ripple-init

@@ -26,20 +26,20 @@ function list(props) {
   console.log(data);
 
   return (
-    <>
-      <h1 className="mt-12 text-4xl font-bold">{`Top 50 in ${category}`}</h1>
-      <div className="flex flex-wrap justify-center h-screen my-10">
+    <div className="ml-6">
+      <h1 className="mt-12 mb-12 text-4xl font-bold">{`Top 50 in ${category}`}</h1>
+      <div className="flex flex-wrap justify-start h-screen gap-x-5">
         {data.map((book) => {
           return (
             <div>
-              <p className="p-4 m-2 text-lg rounded-lg bg-slate-300">
+              <p className="p-3 text-lg rounded-lg bg-slate-300">
                 {book.title}
               </p>
             </div>
           );
         })}
       </div>
-    </>
+    </div>
   );
 }
 
