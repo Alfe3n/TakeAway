@@ -28,7 +28,7 @@ function list(props) {
   return (
     <div className="ml-6">
       <h1 className="mt-12 mb-12 text-4xl font-bold">{`Top 50 in ${category}`}</h1>
-      <div className="flex flex-wrap justify-start h-screen gap-x-5">
+      <div className="flex flex-wrap justify-start min-h-screen gap-x-5 ">
         {data.map((book) => {
           return (
             <div>
