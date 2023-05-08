@@ -10,7 +10,7 @@ function categories() {
     <div>
       <div className="flex flex-wrap justify-center mt-10 categories-container gap-x-3 gap-y-3">
         <button
-          className="p-5 bg-white rounded-lg"
+          className=" @screen xl:p-5 bg-white rounded-lg @screen lg:p-2 text-sm h-fit "
           onClick={() => {
             setCategory(["Entrepreneurship"]);
           }}
