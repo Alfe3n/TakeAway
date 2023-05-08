@@ -26,7 +26,7 @@ function categories() {
           Productivity
         </button>
         <button
-          className="bg-[#F1F6F4] text-[#03314B] p-1 text-sm   rounded-lg md:text-lg md:p-2"
+          className="bg-[#F1F6F4] text-[#03314B] p-2 text-sm   rounded-lg md:text-lg md:p-2"
           onClick={() => {
             setCategory(["Communication"]);
           }}
