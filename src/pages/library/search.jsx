@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
-import "./search.css";
 import Categories from "./categories";
+import Results from "./results";
 function search() {
   console.log("render");
   const [search, setSearch] = useState("");
@@ -12,7 +12,7 @@ function search() {
     axios
       .get(
         "https://www.googleapis.com/books/v1/volumes?q=" +
-          search +
+          "alchemist" +
           "&key=AIzaSyAfZq-DetHnW0deGAA6pdhwriqPYNDBTmw"
       )
       .then((res) => setResults(res.data.items))
@@ -20,10 +20,10 @@ function search() {
   }
   return (
     <div className="flex flex-col items-center justify-center h-5/6">
-      <div className="flex justify-center w-full align-middle search-container">
+      <div className="flex justify-center w-full mb-5 align-middle search-container">
         <div className="flex justify-between w-2/3 p-3 border-2 border-solid rounded-full md:p-5">
           <input
-            className="text-sm text-gray-700 outline-none md:text-lg "
+            className="text-sm text-gray-700 outline-none md:text-lg"
             type="text"
             placeholder="Search.."
             name="search"
@@ -53,7 +53,8 @@ function search() {
           </button>
         </div>
       </div>
-      <Categories />
+      {search === "" ? <Categories /> : null}
+      <Results books={results} />
     </div>
   );
 }

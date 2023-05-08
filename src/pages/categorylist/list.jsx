@@ -31,8 +31,8 @@ function list(props) {
       <div className="flex flex-wrap justify-start h-auto mb-10 gap-x-5 gap-y-2 md:gap-y-8">
         {data.map((book) => {
           return (
-            <div className="h-auto bg-[#F1F6F4] border-0 rounded-lg">
-              <p className="p-2 text-sm text-[#03314B] md:text-lg">
+            <div className="h-auto hover:bg-[#F1F6F4] border- rounded-lg border-solid">
+              <p className="p-2 text-sm text-[#03314B] md:text-lg md:p-3">
                 {book.title}
               </p>
             </div>

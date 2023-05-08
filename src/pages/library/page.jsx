@@ -7,7 +7,7 @@ export function Page1() {
     <div className="h-screen">
       <Navbar />
       <Search />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
