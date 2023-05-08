@@ -15,7 +15,7 @@ export default {
         white: "#ffffff",
         darkblue: "#03314B",
         lightgreen: "#E5FEF0",
-        lightgrey: "#6D787E",
+        lightgrey: "rgb(241, 246, 244)",
       },
     },
   },

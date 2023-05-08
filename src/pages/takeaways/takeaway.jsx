@@ -60,15 +60,15 @@ export function Takeaways() {
             </h2>
           </div>
           <div>
+            <button className="p-2 font-semibold rounded-lg bg-lightgrey">
+              {book.volumeInfo.categories}
+            </button>
             <h3 className="text-lg font-semibold tracking-wider lg:leading-loose">
               What is it about?
             </h3>
             <p>{book.volumeInfo.description}</p>
           </div>
-          <div>
-            <h3 className="text-lg font-semibold">Categories</h3>
-            <p>{book.volumeInfo.categories}</p>
-          </div>
+          <div></div>
           <div>
             <h3 className="text-lg font-semibold">Rating</h3>
             <p>{book.volumeInfo.averageRating}</p>
