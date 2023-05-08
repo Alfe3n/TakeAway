@@ -13,9 +13,9 @@ export default {
       colors: {
         black: "#000000",
         white: "#ffffff",
-        black3: "#666666",
-        black2: "#adadad",
-        black1: "#dbdbdb",
+        darkblue: "#03314B",
+        lightgreen: "#E5FEF0",
+        lightgrey: "#6D787E",
       },
     },
   },

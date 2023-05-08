@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import "./takeaway.css";
 import { useLocation } from "react-router-dom";
-
+import Navbar from "../common/navbar";
 export function Takeaways() {
   const location = useLocation();
   let book = location.state;
@@ -40,25 +39,50 @@ export function Takeaways() {
   console.log("page2");
   console.log(location.state);
   let thumbnail =
-    book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail;
+    book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail;
   return (
-    <div className="takeaway-page-container">
-      <div className="left-container">
-        <p> HELLO WORLD</p>
+    <div className="flex-col w-full page-container">
+      <Navbar />
+      <div className="flex-col m-5 text-darkblue content-container">
+        <div className="flex items-center justify-center mb-6 lg:flex-row-reverse lg:justify-around image-container">
+          <img src={thumbnail} className="lg:w-52"></img>
+          <div className="hidden lg:flex lg:flex-col lg:gap-y-4 ">
+            <h1 className="text-4xl font-bold">{book.volumeInfo.title}</h1>
+            <h2 className="text-2xl">{book.volumeInfo.authors[0]}</h2>
+            <p className="text-xl">Rating:{book.volumeInfo.averageRating}</p>
+          </div>
+        </div>
+        <div className="flex flex-col gap-y-4 details-container">
+          <div className="lg:hidden">
+            <h1 className="text-2xl font-bold">{book.volumeInfo.title}</h1>
+            <h2 className="text-lg font-semibold ">
+              {book.volumeInfo.authors[0]}
+            </h2>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold tracking-wider lg:leading-loose">
+              What is it about?
+            </h3>
+            <p>{book.volumeInfo.description}</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold">Categories</h3>
+            <p>{book.volumeInfo.categories}</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold">Rating</h3>
+            <p>{book.volumeInfo.averageRating}</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold">Date of Publish</h3>
+            <p>{book.volumeInfo.publishedDate}</p>
+          </div>
+        </div>
 
-        <h1>{book.volumeInfo.title}</h1>
-        <h2>{book.volumeInfo.authors[0]}</h2>
-        <h3>What is it about?</h3>
-        <p>{book.volumeInfo.description}</p>
-        <h3>Categories</h3>
-        <p>{book.volumeInfo.categories}</p>
-      </div>
-      <div className="right-container">
-        <img src={thumbnail}></img>
-      </div>
-      {/* <div className="takeaway-container">
+        {/* <div className="takeaway-container">
         <p>{data.choices[0].message.content}</p>
       </div> */}
+      </div>
     </div>
   );
 }
