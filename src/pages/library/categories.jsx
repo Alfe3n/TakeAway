@@ -10,7 +10,7 @@ function categories() {
     <div className="flex items-center justify-center w-full">
       <div className="flex flex-wrap justify-center w-1/2 mt-10 categories-container gap-x-3 gap-y-3">
         <button
-          className="p-1 text-sm bg-white rounded-lg md:text-lg md:p-2"
+          className="p-1 text-sm bg-white border-2 border-solid rounded-lg md:text-lg md:p-2"
           onClick={() => {
             setCategory(["Entrepreneurship"]);
           }}
@@ -18,7 +18,7 @@ function categories() {
           Entrepreneurship
         </button>
         <button
-          className="p-1 text-sm bg-white rounded-lg md:text-lg md:p-2"
+          className="p-1 text-sm bg-white border-2 border-solid rounded-lg md:text-lg md:p-2"
           onClick={() => {
             setCategory(["Productivity"]);
           }}
@@ -26,7 +26,7 @@ function categories() {
           Productivity
         </button>
         <button
-          className="p-1 text-sm bg-white rounded-lg md:text-lg md:p-2"
+          className="p-1 text-sm bg-white border-2 border-solid rounded-lg md:text-lg md:p-2"
           onClick={() => {
             setCategory(["Communication"]);
           }}
@@ -34,7 +34,7 @@ function categories() {
           Communication Skills
         </button>
         <button
-          className="p-1 text-sm bg-white rounded-lg md:text-lg md:p-2"
+          className="p-1 text-sm bg-white border-2 border-solid rounded-lg md:text-lg md:p-2"
           onClick={() => {
             setCategory(["Biography"]);
           }}
@@ -42,7 +42,7 @@ function categories() {
           Biography and Memoir
         </button>
         <button
-          className="p-1 text-sm bg-white rounded-lg md:text-lg md:p-2"
+          className="p-1 text-sm bg-white border-2 border-solid rounded-lg md:text-lg md:p-2"
           onClick={() => {
             setCategory(["Money"]);
           }}
@@ -50,7 +50,7 @@ function categories() {
           Money & Investment
         </button>
         <button
-          className="p-1 text-sm bg-white rounded-lg md:text-lg md:p-2"
+          className="p-1 text-sm bg-white border-2 border-solid rounded-lg md:text-lg md:p-2"
           onClick={() => {
             setCategory(["Philosophy"]);
           }}
