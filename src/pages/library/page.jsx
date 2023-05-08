@@ -4,7 +4,7 @@ import Footer from "../common/footer";
 import Search from "./search";
 export function Page1() {
   return (
-    <div>
+    <div className="h-screen">
       <Navbar />
       <Search />
       <Footer />
