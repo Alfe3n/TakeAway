@@ -1,8 +1,11 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function Gpt(props) {
   let data = [];
+  // let summary = "";
+  const [summary, setSummary] = useState("");
+
   const API_KEY = "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";
   async function fetchdata() {
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
@@ -17,13 +20,14 @@ function Gpt(props) {
         messages: [
           {
             role: "user",
-            content: `elaborate chapter wise takeaways from the book ${props.name}enclosed in an  js array`,
+            content: `elaborate chapter wise summaries from the book ${props.name}enclosed in an  js array as plain text where each chapter name is a key and its summary as its value`,
           },
         ],
       }),
     });
     data = await response.json();
-    console.log(data);
+    setSummary(data.choices[0].message.content);
+    console.log(summary);
   }
   useEffect(() => {
     fetchdata();
@@ -31,7 +35,7 @@ function Gpt(props) {
   return (
     <div>
       <h1>{props.name} from gpt</h1>
-      {/* data?<p>{data.choices[0].message.content}</p>:<p>not yet</p> */}
+      {summary != "" ? <p>{summary}</p> : <p>not yet</p>}
     </div>
   );
 }
