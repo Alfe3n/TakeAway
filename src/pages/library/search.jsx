@@ -22,7 +22,7 @@ function search() {
     <div className="flex flex-col items-center justify-center h-screen bg-black2">
       <div className="flex justify-center w-full align-middle search-container">
         <input
-          className="w-2/3 h-20 text-lg text-gray-700 outline-none  peer"
+          className="w-2/3 p-5 text-sm text-gray-700 outline-none md:text-lg "
           type="text"
           placeholder="Search.."
           name="search"

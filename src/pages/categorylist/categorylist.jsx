@@ -9,7 +9,7 @@ export function Categorylist() {
   let cat = location.state;
   console.log(cat);
   return (
-    <div>
+    <div className="h-screen">
       <Navbar />
       <List category={cat[0]} />
       <Footer />
