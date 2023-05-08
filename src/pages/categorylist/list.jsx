@@ -27,12 +27,12 @@ function list(props) {
 
   return (
     <div className="ml-6">
-      <h1 className="mt-8 mb-8 text-xl font-bold md:text-4xl md:mt">{`Top 50 in ${category}`}</h1>
-      <div className="flex flex-wrap justify-start h-auto mb-10 gap-x-5 gap-y-2 md:gap-y-8">
+      <h1 className=" text-[#03314B] mt-8 mb-8 text-xl font-bold md:text-4xl md:mt">{`Top 50 in ${category}`}</h1>
+      <div className="flex flex-wrap justify-start h-auto mb-10  gap-x-5 gap-y-2 md:gap-y-8">
         {data.map((book) => {
           return (
-            <div className="h-auto">
-              <p className="p-2 text-sm border-2 border-solid rounded-lg md:text-lg">
+            <div className="h-auto bg-[#F1F6F4] border-0 rounded-lg">
+              <p className="p-2 text-sm text-[#03314B] md:text-lg">
                 {book.title}
               </p>
             </div>

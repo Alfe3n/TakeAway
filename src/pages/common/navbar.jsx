@@ -2,8 +2,10 @@ import React from "react";
 
 function navbar() {
   return (
-    <div className="sticky bottom-0 flex items-center justify-start h-16 text-white bg-black">
-      <p className="text-xl font-bold pl-7">TakeAway</p>
+    <div className=" flex items-center justify-start text-white bg-[#F1F6F4]">
+      <p className="text-2xl font-bold p-7 text-[#03314B] md:text-5xl ">
+        TakeAway
+      </p>
     </div>
   );
 }
