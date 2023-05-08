@@ -12,7 +12,7 @@ function search() {
     axios
       .get(
         "https://www.googleapis.com/books/v1/volumes?q=" +
-          "alchemist" +
+          search +
           "&key=AIzaSyAfZq-DetHnW0deGAA6pdhwriqPYNDBTmw"
       )
       .then((res) => setResults(res.data.items))

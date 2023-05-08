@@ -47,9 +47,13 @@ export function Takeaways() {
         <div className="flex items-center justify-center mb-6 md:flex-row-reverse md:justify-around image-container">
           <img src={thumbnail} className="md:w-52"></img>
           <div className="hidden md:flex md:flex-col md:gap-y-4 ">
-            <h1 className="text-4xl font-bold">{book.volumeInfo.title}</h1>
-            <h2 className="text-2xl">{book.volumeInfo.authors[0]}</h2>
-            <p className="text-xl">Rating:{book.volumeInfo.averageRating}</p>
+            <h1 className="text-4xl font-bold lg:text-6xl">
+              {book.volumeInfo.title}
+            </h1>
+            <h2 className="text-2xl lg:text-3xl lg:font-semibold">
+              {book.volumeInfo.authors[0]}
+            </h2>
+            {/* <p className="text-xl">Rating:{book.volumeInfo.averageRating}</p> */}
           </div>
         </div>
         <div className="flex flex-col gap-y-4 details-container">
@@ -60,13 +64,13 @@ export function Takeaways() {
             </h2>
           </div>
           <div>
-            <button className="p-2 font-semibold rounded-lg bg-lightgrey md:text-2xl md:p-4">
+            <button className="p-2 mb-10 font-semibold rounded-lg bg-lightgrey md:text-2xl md:p-4">
               {book.volumeInfo.categories}
             </button>
             <h3 className="text-lg font-semibold tracking-wider lg:leading-loose md:text-2xl">
               What is it about?
             </h3>
-            <p className="leading-relaxed tracking-wide md:text-2xl md:tracking-wider md:leading-loose">
+            <p className="leading-relaxed tracking-wide md:text-2xl md:tracking-wide md:leading-normal">
               {book.volumeInfo.description}
             </p>
           </div>
