@@ -5,9 +5,11 @@ export function Takeaway() {
   const location = useLocation();
   let book = location.state;
   let data = {};
-  let navigate = useNavigate();
-  function readBook() {
-    // navigate("/gpt", { state: book.volumeInfo.title });
+  const navigate = useNavigate();
+  // console.log(book.volumeInfo.title);
+
+  function readBook(name) {
+    navigate("/gpt", { state: name });
   }
   const API_KEY = "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";
   // const systemMessage = {
@@ -40,8 +42,8 @@ export function Takeaway() {
   // }, []);
   // let { id } = useParams();
   // console.log(book);
-  console.log("page2");
-  console.log(location.state);
+  // console.log("page2");
+
   let thumbnail =
     book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail;
   return (
@@ -71,14 +73,14 @@ export function Takeaway() {
             <button className="p-2 mb-10 font-semibold rounded-lg bg-lightgrey md:text-2xl md:p-4">
               {book.volumeInfo.categories}
             </button>
-            <a href="/gpt">
-              <button
-                className="p-2 mb-10 ml-4 font-semibold rounded-lg bg-lightgrey md:text-2xl md:p-4"
-                // onClick={readBook}
-              >
-                Read Book
-              </button>
-            </a>
+            {/* <a href="/gpt"> */}
+            <button
+              className="p-2 mb-10 ml-4 font-semibold rounded-lg bg-lightgrey md:text-2xl md:p-4"
+              onClick={() => readBook(book.volumeInfo.title)}
+            >
+              Read Book
+            </button>
+            {/* </a> */}
 
             <h3 className="text-lg font-semibold tracking-wider lg:leading-loose md:text-2xl">
               What is it about?
