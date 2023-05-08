@@ -44,38 +44,42 @@ export function Takeaways() {
     <div className="flex-col w-full page-container">
       <Navbar />
       <div className="flex-col m-5 text-darkblue content-container">
-        <div className="flex items-center justify-center mb-6 lg:flex-row-reverse lg:justify-around image-container">
-          <img src={thumbnail} className="lg:w-52"></img>
-          <div className="hidden lg:flex lg:flex-col lg:gap-y-4 ">
+        <div className="flex items-center justify-center mb-6 md:flex-row-reverse md:justify-around image-container">
+          <img src={thumbnail} className="md:w-52"></img>
+          <div className="hidden md:flex md:flex-col md:gap-y-4 ">
             <h1 className="text-4xl font-bold">{book.volumeInfo.title}</h1>
             <h2 className="text-2xl">{book.volumeInfo.authors[0]}</h2>
             <p className="text-xl">Rating:{book.volumeInfo.averageRating}</p>
           </div>
         </div>
         <div className="flex flex-col gap-y-4 details-container">
-          <div className="lg:hidden">
+          <div className="md:hidden">
             <h1 className="text-2xl font-bold">{book.volumeInfo.title}</h1>
             <h2 className="text-lg font-semibold ">
               {book.volumeInfo.authors[0]}
             </h2>
           </div>
           <div>
-            <button className="p-2 font-semibold rounded-lg bg-lightgrey">
+            <button className="p-2 font-semibold rounded-lg bg-lightgrey md:text-2xl md:p-4">
               {book.volumeInfo.categories}
             </button>
-            <h3 className="text-lg font-semibold tracking-wider lg:leading-loose">
+            <h3 className="text-lg font-semibold tracking-wider lg:leading-loose md:text-2xl">
               What is it about?
             </h3>
-            <p>{book.volumeInfo.description}</p>
+            <p className="leading-relaxed tracking-wide md:text-2xl md:tracking-wider md:leading-loose">
+              {book.volumeInfo.description}
+            </p>
           </div>
           <div></div>
           <div>
-            <h3 className="text-lg font-semibold">Rating</h3>
-            <p>{book.volumeInfo.averageRating}</p>
+            <h3 className="text-lg font-semibold md:text-2xl">Rating</h3>
+            <p className="md:text-2xl">{book.volumeInfo.averageRating}</p>
           </div>
           <div>
-            <h3 className="text-lg font-semibold">Date of Publish</h3>
-            <p>{book.volumeInfo.publishedDate}</p>
+            <h3 className="text-lg font-semibold md:text-2xl">
+              Date of Publish
+            </h3>
+            <p className="md:text-2xl">{book.volumeInfo.publishedDate}</p>
           </div>
         </div>
 
