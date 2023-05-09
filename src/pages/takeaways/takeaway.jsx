@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../common/navbar";
 export function Takeaway() {
@@ -6,7 +6,7 @@ export function Takeaway() {
   let book = location.state;
   let data = {};
   const navigate = useNavigate();
-  // console.log(book.volumeInfo.title);
+  console.log(book);
 
   function readBook(name) {
     navigate("/gpt", { state: name });

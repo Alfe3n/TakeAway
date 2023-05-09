@@ -27,11 +27,15 @@ function Gpt(props) {
     });
     data = await response.json();
     setSummary(data.choices[0].message.content);
-    console.log(summary);
+
+    console.log(data);
   }
+  let i = 0;
+  i + 1;
+  // fetchdata();
   useEffect(() => {
     fetchdata();
-  }, []);
+  }, [i]);
   return (
     <div>
       <h1>{props.name} from gpt</h1>

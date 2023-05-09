@@ -1,46 +1,71 @@
-import React from "react";
+import React, { useState } from 'react'
 
-import { biography } from "../../data/biography";
-import { philosophy } from "../../data/philosophy";
-import { entrepreneurship } from "../../data/entrepreneurship";
-import { productivity } from "../../data/productivity";
-import { money } from "../../data/money";
-import { communication } from "../../data/communication";
+import { biography } from '../../data/biography'
+import { philosophy } from '../../data/philosophy'
+import { entrepreneurship } from '../../data/entrepreneurship'
+import { productivity } from '../../data/productivity'
+import { money } from '../../data/money'
+import { communication } from '../../data/communication'
+import axios from 'axios'
+import { Link, useNavigate } from 'react-router-dom'
+
 function list(props) {
-  let category = props.category;
-  let data = [];
-  console.log(category);
-  if (category == "Biography") {
-    data = biography;
-  } else if (category == "Philosophy") {
-    data = philosophy;
-  } else if (category == "Entrepreneurship") {
-    data = entrepreneurship;
-  } else if (category == "Productivity") {
-    data = productivity;
-  } else if (category == "Money") {
-    data = money;
+  const navigate = useNavigate()
+  let i = 0
+  let category = props.category
+  let data = []
+  const [bookData, setBookData] = useState([])
+  console.log(category)
+  if (category == 'Biography') {
+    data = biography
+  } else if (category == 'Philosophy') {
+    data = philosophy
+  } else if (category == 'Entrepreneurship') {
+    data = entrepreneurship
+  } else if (category == 'Productivity') {
+    data = productivity
+  } else if (category == 'Money') {
+    data = money
   } else {
-    data = communication;
+    data = communication
   }
-  console.log(data);
+  console.log(data)
+  function setBook(bookparameter) {
+    navigate('/book', { state: bookparameter })
+  }
+  function searchbook(ISBN) {
+    axios
+      .get('https://www.googleapis.com/books/v1/volumes?q=+isbn:' + ISBN + '&key=AIzaSyAfZq-DetHnW0deGAA6pdhwriqPYNDBTmw')
+      .then((res) => setBookData(res.data.items))
+      .catch((err) => console.log(err))
+    console.log(bookData)
+    if (bookData !== undefined)
+      if (bookData.length != 0) {
+        setBook(bookData[0])
+      }
+  }
 
   return (
     <div className="ml-6 mr-6">
       <h1 className=" text-[#03314B] mt-8 mb-8 text-xl font-bold md:text-4xl md:mt">{`Top 50 in ${category}`}</h1>
       <div className="flex flex-wrap justify-start h-auto mb-10 gap-x-5 gap-y-2 md:gap-y-8">
         {data.map((book) => {
+          i = i + 1
           return (
-            <div className="h-auto hover:bg-[#F1F6F4] border- rounded-lg border-solid">
-              <p className="p-2 text-sm text-[#03314B] md:text-lg md:p-3">
+            <div className="h-auto hover:bg-[#F1F6F4] border- rounded-lg border-solid" key={i}>
+              <p
+                onClick={() => {
+                  searchbook(book.ISBN)
+                }}
+                className="p-2 text-sm text-[#03314B] md:text-lg md:p-3">
                 {book.title}
               </p>
             </div>
-          );
+          )
         })}
       </div>
     </div>
-  );
+  )
 }
 
-export default list;
+export default list
