@@ -34,7 +34,8 @@ function Gpt(props) {
   // }
   async function fetchdata() {
     const conversation = new Conversation({
-      apiKey: process.env.REACT_APP_API_KEY /* Your OpenAI API key */
+      apiKey: process.env.REACT_APP_API_KEY
+      // apiKey: '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'
     })
 
     const response = await conversation.prompt(`elaborate chapter wise summaries from the book ${props.name} where each chapter summary is a paragraph `)
@@ -51,12 +52,12 @@ function Gpt(props) {
     fetchdata()
   }, [i])
   return (
-    <div className="gptContainer my-10 mx-32">
-      <h1 className="font-bold text-5xl text-black text-center mb-10">{props.name}</h1>
+    <div className="mx-64 my-10 gptContainer">
+      <h1 className="mb-10 text-5xl font-bold text-center text-black">{props.name}</h1>
       {summary != '' ? (
         <>
           {paragraphs.map((paragraph, index) => (
-            <p key={index} className=" text-darkblue leading-relaxed tracking-wide md:text-2xl md:tracking-wide md:leading-normal">
+            <p key={index} className="leading-relaxed tracking-wide text-darkblue md:text-2xl md:tracking-wide md:leading-normal">
               {paragraph}
               <br></br>
             </p>
