@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { biography } from '../../data/biography'
 import { philosophy } from '../../data/philosophy'
@@ -12,36 +12,45 @@ import { Link, useNavigate } from 'react-router-dom'
 function list(props) {
   const navigate = useNavigate()
   let i = 0
-  let category = props.category
   let data = []
   const [bookData, setBookData] = useState([])
-  console.log(category)
-  if (category == 'Biography') {
-    data = biography
-  } else if (category == 'Philosophy') {
-    data = philosophy
-  } else if (category == 'Entrepreneurship') {
-    data = entrepreneurship
-  } else if (category == 'Productivity') {
-    data = productivity
-  } else if (category == 'Money') {
-    data = money
-  } else {
-    data = communication
+  // const [ISBN, setISBN] = useState('')
+  let category = props.category
+  function setData() {
+    if (category == 'Biography') {
+      data = biography
+    } else if (category == 'Philosophy') {
+      data = philosophy
+    } else if (category == 'Entrepreneurship') {
+      data = entrepreneurship
+    } else if (category == 'Productivity') {
+      data = productivity
+    } else if (category == 'Money') {
+      data = money
+    } else {
+      data = communication
+    }
   }
-  console.log(data)
-  function setBook(bookparameter) {
-    navigate('/book', { state: bookparameter })
-  }
-  function searchbook(ISBN) {
+  // useEffect(() => {
+  //   setData()
+  // }, [])
+  setData()
+  // console.log(data)
+  // function setBook(bookparameter) {
+  //   navigate('/book', { state: bookparameter })
+  // }
+  let dummy = []
+  function searchbook(isbn) {
+    // setISBN(isbn)
     axios
-      .get('https://www.googleapis.com/books/v1/volumes?q=+isbn:' + ISBN + '&key=AIzaSyAfZq-DetHnW0deGAA6pdhwriqPYNDBTmw')
+      .get('https://www.googleapis.com/books/v1/volumes?q=+isbn:' + isbn + '&key=AIzaSyAfZq-DetHnW0deGAA6pdhwriqPYNDBTmw')
       .then((res) => setBookData(res.data.items))
+      // .then((res) => (dummy = res.data.items))
       .catch((err) => console.log(err))
     console.log(bookData)
     if (bookData !== undefined)
       if (bookData.length != 0) {
-        setBook(bookData[0])
+        navigate('/book', { state: bookData[0] })
       }
   }
 
