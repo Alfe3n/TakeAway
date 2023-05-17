@@ -36,7 +36,7 @@ function Gpt(props) {
   async function fetchdata() {
     const conversation = new Conversation({
       // apiKey: API_KEY
-      apiKey: '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'
+      apiKey: import.meta.env.VITE_SOME_KEY
     })
 
     const response = await conversation.prompt(`elaborate chapter wise summaries from the book ${props.name} where each chapter summary is a paragraph `)

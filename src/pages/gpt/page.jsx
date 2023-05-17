@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Gpt from './gptSummary'
-import './../../../env.js'
+
 export function Page() {
   const location = useLocation()
   let bookName = location.state
