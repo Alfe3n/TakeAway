@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { Conversation } from 'gpt-turbo'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+// import { API_KEY } from '../../../env.js'
 // import API_KEY from '../../../apikey.js'
 function Gpt(props) {
   let data = []
@@ -34,8 +35,8 @@ function Gpt(props) {
   // }
   async function fetchdata() {
     const conversation = new Conversation({
-      apiKey: process.env.REACT_APP_API_KEY
-      // apiKey: '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'
+      // apiKey: API_KEY
+      apiKey: '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'
     })
 
     const response = await conversation.prompt(`elaborate chapter wise summaries from the book ${props.name} where each chapter summary is a paragraph `)
