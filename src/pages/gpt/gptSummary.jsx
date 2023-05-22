@@ -53,8 +53,8 @@ function Gpt(props) {
     fetchdata()
   }, [i])
   return (
-    <div className="mx-64 my-10 gptContainer">
-      <h1 className="mb-10 text-5xl font-bold text-center text-black">{props.name}</h1>
+    <div className="mx-12 my-10 md:mx-32 lg:mx-64 gptContainer">
+      <h1 className="mb-10 text-3xl font-bold text-center text-black md:text-5xl">{props.name}</h1>
       {summary != '' ? (
         <>
           {paragraphs.map((paragraph, index) => (
