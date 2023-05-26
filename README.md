@@ -4,7 +4,7 @@ This is a simple webapp built with React Vite, Redux, and the Google books API a
 ## Technologies Used
 - [React Vite](https://vitejs.dev/): A fast and opinionated React setup with instant reloading
 - [Redux](https://redux.js.org/): A predictable state container for managing global app states
--Api's-Google book Api,Chatgpt Api
+- [API's]-Google book API,Chatgpt API
 
 
 ## Getting Started
