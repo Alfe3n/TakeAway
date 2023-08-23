@@ -11,6 +11,25 @@ export function Takeaway() {
 
   const [loading, setLoading] = useState(true);
   const [thumbnail, setThumbnail] = useState("");
+  const ReadMore = ({ children }) => {
+    const text = children;
+    const [isReadMore, setIsReadMore] = useState(true);
+    const toggleReadMore = () => {
+      setIsReadMore(!isReadMore);
+    };
+    return (
+      <p className="text">
+        {isReadMore ? text.slice(0, 150) : text}
+        <span onClick={toggleReadMore} className="read-or-hide">
+          {isReadMore ? (
+            <span className="font-bold">...read more</span>
+          ) : (
+            <span className="font-bold">show less</span>
+          )}
+        </span>
+      </p>
+    );
+  };
 
   function readBook(name) {
     navigate("/gpt", { state: name });
@@ -98,9 +117,11 @@ export function Takeaway() {
             <h3 className="text-lg font-semibold tracking-wider lg:leading-loose md:text-xl">
               What is it about?
             </h3>
+
             <p className="leading-relaxed tracking-wide md:text-xl md:tracking-wide md:leading-normal">
-              {book.volumeInfo.description}
+              <ReadMore>{book.volumeInfo.description}</ReadMore>
             </p>
+
             <button className="p-2 mt-4 font-semibold rounded-lg bg-lightgrey md:text-xl md:p-2">
               {book.volumeInfo.categories}
             </button>
